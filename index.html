@@ -1,292 +1,155 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>元界創想 — 組織架構</title>
-  <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --muted:#9aa7bd;
-      --accent:#6ee7b7;
-      --glass: rgba(255,255,255,0.04);
-      --glass-2: rgba(255,255,255,0.02);
-      --card-border: rgba(255,255,255,0.06);
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    html,body{height:100%;}
-    body{
-      margin:0;
-      background: linear-gradient(180deg,#071024 0%, #0f1724 100%);
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:24px;
-    }
-    .container{max-width:1100px;margin:0 auto;}
-    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
-    .logo{
-      width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(10,20,40,0.6);
-      font-weight:700;color:#04202b
-    }
-    h1{margin:0;font-size:22px}
-    p.lead{margin:4px 0 0;color:var(--muted);font-size:13px}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>元界創想 | 組織架構</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #0d0d0d;
+            color: #e6e6e6;
+            line-height: 1.8;
+        }
 
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+        header {
+            background: linear-gradient(90deg, #00b3ff, #0066ff);
+            padding: 25px;
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
 
-    /* 左側主卡片 */
-    .card{background:linear-gradient(180deg,var(--card),#071021);border:1px solid var(--card-border);border-radius:14px;padding:18px}
-    .section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-    .pill{background:var(--glass);padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted);}
+        .section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
 
-    /* organization chart */
-    .org{display:flex;flex-direction:column;gap:12px}
-    .node{background:linear-gradient(180deg,rgba(255,255,255,0.02),var(--glass-2));border-radius:10px;padding:12px;border:1px solid var(--card-border);display:flex;justify-content:space-between;align-items:center}
-    .node .meta{display:flex;flex-direction:column}
-    .node h3{margin:0;font-size:15px}
-    .node small{color:var(--muted);font-size:12px}
+        .title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-left: 6px solid #008cff;
+            padding-left: 12px;
+        }
 
-    .subnodes{margin-top:8px;padding-left:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
-    .box{background:rgba(255,255,255,0.02);border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,0.03)}
-    .box h4{margin:0;font-size:13px}
-    .box ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:13px}
+        .card {
+            background: #1a1a1a;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border: 1px solid #333;
+        }
 
-    /* 右側 */
-    aside.card{position:sticky;top:24px;height:fit-content}
-    .stat{display:flex;gap:8px;align-items:center;margin-bottom:12px}
-    .stat .num{font-size:18px;font-weight:700;color:var(--accent)}
+        .card h3 {
+            margin-top: 0;
+            color: #4db8ff;
+        }
 
-    /* footer */
-    footer{margin-top:18px;color:var(--muted);font-size:13px}
+        ul {
+            padding-left: 20px;
+        }
 
-    /* responsive */
-    @media (max-width:980px){
-      .grid{grid-template-columns:1fr;}
-      aside.card{position:relative;top:auto}
-    }
-
-    /* small interaction */
-    button.cta{background:linear-gradient(90deg,#06b6d4,#7c3aed);border:none;color:white;padding:10px 12px;border-radius:10px;cursor:pointer}
-    details{background:transparent;border-radius:8px}
-    summary{list-style:none;cursor:pointer}
-    summary::-webkit-details-marker{display:none}
-  </style>
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background: #111;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">元界</div>
-      <div>
-        <h1>元界創想 — 組織架構</h1>
-        <p class="lead">科技創新 × 元宇宙 × 地震監測 × 互動開發。下方為精簡版組織架構，適合作為官網或簡報的 HTML 範本。</p>
-      </div>
-    </header>
+    <header>元界創想｜組織架構</header>
 
-    <div class="grid">
-      <main>
-        <section class="card">
-          <div class="section-title">
-            <div>
-              <div class="pill">公司核心</div>
-            </div>
-            <div style="font-size:13px;color:var(--muted)">最後更新：2025-11-25</div>
-          </div>
+    <div class="section">
 
-          <div class="org">
-            <div class="node">
-              <div class="meta">
-                <h3>董事會 / 核心管理層</h3>
-                <small>CEO • CTO • CPO</small>
-              </div>
-              <div class="pill">策略層</div>
-            </div>
+        <div class="title">一、董事會 / 核心管理層</div>
+        <div class="card">
+            <h3>CEO｜執行長</h3>
+            <p>負責願景、方向、合作策略。</p>
 
-            <details open>
-              <summary style="margin-top:8px;font-weight:600">技術研發部（Tech R&D Department）</summary>
-              <div class="subnodes" style="margin-top:8px">
-                <div class="box">
-                  <h4>AI / 資料分析組</h4>
-                  <ul>
-                    <li>地震資料處理與 EEW 演算法</li>
-                    <li>即時訊號判讀、模型訓練</li>
-                    <li>資料視覺化與報表</li>
-                  </ul>
-                </div>
-                <div class="box">
-                  <h4>感測器與硬體組</h4>
-                  <ul>
-                    <li>低成本地震儀開發（500-5000 元級）</li>
-                    <li>物聯網資料上報</li>
-                    <li>維運 / 校正</li>
-                  </ul>
-                </div>
-                <div class="box">
-                  <h4>後端開發組</h4>
-                  <ul>
-                    <li>API 與資料庫設計</li>
-                    <li>即時訊號傳輸架構</li>
-                  </ul>
-                </div>
-                <div class="box">
-                  <h4>前端 / UI 組</h4>
-                  <ul>
-                    <li>監測 Dashboard</li>
-                    <li>互動地圖與網頁</li>
-                  </ul>
-                </div>
-              </div>
-            </details>
+            <h3>CTO｜技術長</h3>
+            <p>負責技術開發、資料架構、核心系統設計。</p>
 
-            <details>
-              <summary style="margin-top:8px;font-weight:600">元宇宙系統部（Metaverse System Department）</summary>
-              <div class="subnodes" style="margin-top:8px">
-                <div class="box">
-                  <h4>3D 模擬組</h4>
-                  <ul>
-                    <li>Unity / Unreal 模擬</li>
-                    <li>地震效果與虛擬城市</li>
-                  </ul>
-                </div>
-                <div class="box">
-                  <h4>Sora 影像整合組</h4>
-                  <ul>
-                    <li>提示詞工程 / 影片生成流程</li>
-                    <li>素材整合與後製</li>
-                  </ul>
-                </div>
-                <div class="box">
-                  <h4>虛實整合組（XR）</h4>
-                  <ul>
-                    <li>VR/AR 互動體驗</li>
-                    <li>展示廳與互動介面</li>
-                  </ul>
-                </div>
-              </div>
-            </details>
-
-            <details>
-              <summary style="margin-top:8px;font-weight:600">創意設計部（Creative Studio）</summary>
-              <div class="subnodes" style="margin-top:8px">
-                <div class="box">
-                  <h4>品牌設計組</h4>
-                  <ul>
-                    <li>LOGO / CI 設計</li>
-                    <li>企劃書視覺模板</li>
-                  </ul>
-                </div>
-                <div class="box">
-                  <h4>多媒體組</h4>
-                  <ul>
-                    <li>動畫 / 宣傳片 / 影片後製</li>
-                  </ul>
-                </div>
-                <div class="box">
-                  <h4>社群內容組</h4>
-                  <ul>
-                    <li>YouTube / IG / TikTok 內容生產</li>
-                  </ul>
-                </div>
-              </div>
-            </details>
-
-            <details>
-              <summary style="margin-top:8px;font-weight:600">企劃行銷部（Planning & Marketing）</summary>
-              <div class="subnodes" style="margin-top:8px">
-                <div class="box">
-                  <h4>行銷策略組</h4>
-                  <ul><li>品牌行銷 / 合作洽談</li></ul>
-                </div>
-                <div class="box">
-                  <h4>專案企劃組</h4>
-                  <ul><li>專案提案 / 活動策劃</li></ul>
-                </div>
-                <div class="box">
-                  <h4>客戶關係組</h4>
-                  <ul><li>會員系統 / 客服</li></ul>
-                </div>
-              </div>
-            </details>
-
-            <details>
-              <summary style="margin-top:8px;font-weight:600">營運管理部（Operations）</summary>
-              <div class="subnodes" style="margin-top:8px">
-                <div class="box">
-                  <h4>行政 & 財務組</h4>
-                  <ul><li>會計 / 採購 / 經費管理</li></ul>
-                </div>
-                <div class="box">
-                  <h4>法務組</h4>
-                  <ul><li>合約 / 版權 / AI 法務審查</li></ul>
-                </div>
-                <div class="box">
-                  <h4>人力資源組（HR）</h4>
-                  <ul><li>招募 / 教育訓練</li></ul>
-                </div>
-              </div>
-            </details>
-
-            <details>
-              <summary style="margin-top:8px;font-weight:600">特別單位</summary>
-              <div style="margin-top:8px">
-                <div class="box">
-                  <h4>地震公共服務中心（志工 / 社群）</h4>
-                  <ul>
-                    <li>地震儀部署志工網絡</li>
-                    <li>資料共享與協作監測</li>
-                  </ul>
-                </div>
-                <div class="box" style="margin-top:8px">
-                  <h4>技術顧問團隊</h4>
-                  <ul>
-                    <li>地震學家 / 工程師 / AI 顧問</li>
-                  </ul>
-                </div>
-              </div>
-            </details>
-
-          </div>
-
-        </section>
-
-        <footer>
-          本頁範本可直接拿去官網或簡報。需要我幫你把它轉成：PDF、可編輯 PPT、或加入公司實際成員／聯絡資訊嗎？
-        </footer>
-      </main>
-
-      <aside class="card">
-        <div class="section-title">
-          <div class="pill">快速資訊</div>
-          <div style="color:var(--muted);font-size:12px">範本版</div>
+            <h3>CPO｜企劃總監</h3>
+            <p>品牌規劃、內容策略、產品方向。</p>
         </div>
 
-        <div style="margin-bottom:12px">
-          <div class="stat"><div class="num">5</div><div style="color:var(--muted)">主要部門</div></div>
-          <div class="stat"><div class="num">12</div><div style="color:var(--muted)">小組數（示意）</div></div>
+        <div class="title">二、核心部門</div>
+
+        <div class="card">
+            <h3>技術研發部</h3>
+            <ul>
+                <li>AI 與資料分析組（地震資料、演算法、EEW）</li>
+                <li>感測器硬體組（地震儀、IoT）</li>
+                <li>後端架構組（API、資料庫、伺服器）</li>
+                <li>前端工程組（地圖、儀表板、互動視覺）</li>
+            </ul>
         </div>
 
-        <div style="margin-bottom:12px">
-          <button class="cta" onclick="copyHTML()">複製 HTML</button>
+        <div class="card">
+            <h3>元宇宙系統部</h3>
+            <ul>
+                <li>3D 模擬組（Unity／UE、地震模擬）</li>
+                <li>Sora 視覺生成組（提示詞、AI 影像、影片）</li>
+                <li>XR 虛實整合組（VR、AR 展示）</li>
+            </ul>
         </div>
 
-        <div style="color:var(--muted);font-size:13px">
-          使用說明：此檔為靜態 HTML 範本，可直接放到公司網站／GitHub Pages。若需要我可替你加入：
-          <ul style="margin:6px 0 0 18px;color:var(--muted)"><li>實際成員資料</li><li>聯絡表單或 Email</li><li>匯出成 PDF / PPT</li></ul>
+        <div class="card">
+            <h3>創意設計部</h3>
+            <ul>
+                <li>品牌組（識別系統、平面設計）</li>
+                <li>多媒體組（動畫、視覺、後製）</li>
+                <li>社群內容組（YT／IG／TikTok）</li>
+            </ul>
         </div>
 
-      </aside>
+        <div class="card">
+            <h3>企劃行銷部</h3>
+            <ul>
+                <li>行銷策略組（推廣、曝光、合作）</li>
+                <li>專案企劃組（活動、提案、營運）</li>
+                <li>客服與社群組（會員、支援）</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>營運管理部</h3>
+            <ul>
+                <li>行政與財務</li>
+                <li>法務與授權</li>
+                <li>人力資源（招募、訓練）</li>
+            </ul>
+        </div>
+
+        <div class="title">三、特別單位</div>
+
+        <div class="card">
+            <h3>地震公共服務中心</h3>
+            <ul>
+                <li>地震儀佈建志願者</li>
+                <li>資料共享網路</li>
+                <li>即時監測協作</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>技術顧問團隊</h3>
+            <ul>
+                <li>地震學專家</li>
+                <li>工程與 AI 顧問</li>
+                <li>系統安全與架構顧問</li>
+            </ul>
+        </div>
+
     </div>
-  </div>
 
-  <script>
-    function copyHTML(){
-      const html = document.documentElement.outerHTML;
-      navigator.clipboard.writeText(html).then(()=>{
-        alert('已複製整個 HTML 到剪貼簿');
-      }).catch(()=>{
-        alert('複製失敗，請手動選取全部並複製');
-      })
-    }
-  </script>
+    <footer>
+        © 2025 元界創想 | Metaverse Innovations
+    </footer>
 </body>
 </html>
