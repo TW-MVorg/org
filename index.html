@@ -1,155 +1,327 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>元界創想 | 組織架構</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: #0d0d0d;
-            color: #e6e6e6;
-            line-height: 1.8;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>元界創想 — 組織架構</title>
+  <meta name="description" content="元界創想（Metaverse Innovations）組織介紹：核心成員、部門、專案與聯絡資訊。可直接部署為公司官網或 GitHub Pages。">
+  <style>
+    :root{
+      --bg:#071022; --card:#0f1726; --muted:#9fb0c8; --accent:#37b6ff; --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02); --radius:14px; --glass-border: rgba(255,255,255,0.06);
+      color-scheme: dark;
+    }
 
-        header {
-            background: linear-gradient(90deg, #00b3ff, #0066ff);
-            padding: 25px;
-            text-align: center;
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
-        }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans TC', 'Helvetica Neue', Arial;color:#e8f0fb;background:linear-gradient(180deg,#041227 0%, #071022 100%);}
 
-        .section {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:center;justify-content:space-between;padding:10px 28px;background:linear-gradient(180deg,rgba(5,12,25,0.6),rgba(5,12,25,0.35));backdrop-filter:blur(8px);z-index:999}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:10px;display:inline-grid;place-items:center;background:linear-gradient(135deg,var(--accent),#6ee7b7);font-weight:700;color:#022;box-shadow:0 8px 22px rgba(3,40,60,0.5)}
+    .brand h1{font-size:16px;margin:0;color:#e8f0fb}
+    .navlinks{display:flex;gap:18px;align-items:center}
+    .navlinks a{color:var(--muted);text-decoration:none;font-size:14px}
+    .navlinks a:hover{color:var(--accent)}
+    .controls{display:flex;gap:10px;align-items:center}
+    .btn{background:linear-gradient(90deg,var(--accent),#6a9eff);border:none;color:#022;padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.05);color:var(--muted);padding:8px 10px;border-radius:10px;cursor:pointer}
 
-        .title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            border-left: 6px solid #008cff;
-            padding-left: 12px;
-        }
+    header.hero{height:320px;margin-top:64px;display:flex;align-items:center;justify-content:center;text-align:center;background-image:linear-gradient(135deg, rgba(7,104,255,0.12), rgba(3,15,34,0.4)), url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1350&q=80');background-size:cover;background-position:center;color:white}
+    header.hero h2{font-size:40px;margin:0;text-shadow:0 8px 40px rgba(3,30,80,0.6)}
+    header.hero p{color:var(--muted);margin-top:8px}
 
-        .card {
-            background: #1a1a1a;
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            border: 1px solid #333;
-        }
+    main{max-width:1200px;margin:34px auto;padding:0 20px 60px}
 
-        .card h3 {
-            margin-top: 0;
-            color: #4db8ff;
-        }
+    /* leaders */
+    .panel{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+    .left{display:flex;flex-direction:column;gap:18px}
 
-        ul {
-            padding-left: 20px;
-        }
+    .card{background:linear-gradient(180deg,var(--card),#071522);border-radius:var(--radius);padding:18px;border:1px solid var(--glass-border);box-shadow:0 10px 30px rgba(2,10,20,0.6);transition:transform .28s,box-shadow .28s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,40,80,0.4)}
+    .muted{color:var(--muted);font-size:13px}
+    .title{font-size:20px;margin:0 0 8px;color:#dff3ff}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            background: #111;
-            color: #777;
-        }
-    </style>
+    .leaders-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+    .leader{background:linear-gradient(180deg,#0b1520,#06121a);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.03);cursor:pointer}
+    .leader:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,120,200,0.12)}
+    .avatar{width:84px;height:84px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),#6a9eff);font-weight:700;color:#042}
+    .role{font-size:13px;color:var(--muted)}
+
+    /* department list */
+    .acc{display:grid;gap:10px}
+    details{background:linear-gradient(180deg,#091223,#071022);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    summary{font-weight:700;font-size:16px;cursor:pointer;outline:none;color:#dff3ff}
+    summary::-webkit-details-marker{display:none}
+    .content{margin-top:10px;color:var(--muted);font-size:14px}
+
+    aside.right{position:sticky;top:88px;height:fit-content}
+    .card.small{padding:12px}
+    .contact{display:grid;gap:8px}
+    .input{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:10px;border-radius:8px;color:#e8f0fb}
+
+    footer{margin-top:40px;padding:20px 0;color:var(--muted);text-align:center}
+
+    /* modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;z-index:1200}
+    .modal{background:linear-gradient(180deg,#07101a,#041322);padding:22px;border-radius:12px;max-width:720px;width:92%;border:1px solid rgba(255,255,255,0.05);}
+    .modal h3{margin:0}
+    .meta-row{display:flex;gap:12px;align-items:center;margin-top:12px}
+    .meta-row .big{font-weight:700;color:var(--accent)}
+
+    /* utilities */
+    .top-btn{position:fixed;right:20px;bottom:22px;background:linear-gradient(90deg,var(--accent),#6a9eff);border:none;padding:12px;border-radius:999px;color:#022;cursor:pointer;box-shadow:0 10px 30px rgba(10,60,120,0.2)}
+
+    @media (max-width:980px){
+      .panel{grid-template-columns:1fr}
+      nav{padding:10px 14px}
+      header.hero{height:220px}
+    }
+  </style>
 </head>
 <body>
-    <header>元界創想｜組織架構</header>
-
-    <div class="section">
-
-        <div class="title">一、董事會 / 核心管理層</div>
-        <div class="card">
-            <h3>CEO｜執行長</h3>
-            <p>負責願景、方向、合作策略。</p>
-
-            <h3>CTO｜技術長</h3>
-            <p>負責技術開發、資料架構、核心系統設計。</p>
-
-            <h3>CPO｜企劃總監</h3>
-            <p>品牌規劃、內容策略、產品方向。</p>
-        </div>
-
-        <div class="title">二、核心部門</div>
-
-        <div class="card">
-            <h3>技術研發部</h3>
-            <ul>
-                <li>AI 與資料分析組（地震資料、演算法、EEW）</li>
-                <li>感測器硬體組（地震儀、IoT）</li>
-                <li>後端架構組（API、資料庫、伺服器）</li>
-                <li>前端工程組（地圖、儀表板、互動視覺）</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h3>元宇宙系統部</h3>
-            <ul>
-                <li>3D 模擬組（Unity／UE、地震模擬）</li>
-                <li>Sora 視覺生成組（提示詞、AI 影像、影片）</li>
-                <li>XR 虛實整合組（VR、AR 展示）</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h3>創意設計部</h3>
-            <ul>
-                <li>品牌組（識別系統、平面設計）</li>
-                <li>多媒體組（動畫、視覺、後製）</li>
-                <li>社群內容組（YT／IG／TikTok）</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h3>企劃行銷部</h3>
-            <ul>
-                <li>行銷策略組（推廣、曝光、合作）</li>
-                <li>專案企劃組（活動、提案、營運）</li>
-                <li>客服與社群組（會員、支援）</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h3>營運管理部</h3>
-            <ul>
-                <li>行政與財務</li>
-                <li>法務與授權</li>
-                <li>人力資源（招募、訓練）</li>
-            </ul>
-        </div>
-
-        <div class="title">三、特別單位</div>
-
-        <div class="card">
-            <h3>地震公共服務中心</h3>
-            <ul>
-                <li>地震儀佈建志願者</li>
-                <li>資料共享網路</li>
-                <li>即時監測協作</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h3>技術顧問團隊</h3>
-            <ul>
-                <li>地震學專家</li>
-                <li>工程與 AI 顧問</li>
-                <li>系統安全與架構顧問</li>
-            </ul>
-        </div>
-
+  <nav>
+    <div class="brand">
+      <div class="logo">元界</div>
+      <div><h1 style="font-size:14px;margin:0">元界創想</h1><div style="font-size:12px;color:var(--muted)">Metaverse Innovations</div></div>
     </div>
 
-    <footer>
-        © 2025 元界創想 | Metaverse Innovations
-    </footer>
+    <div class="navlinks">
+      <a href="#leaders">核心成員</a>
+      <a href="#dept">部門</a>
+      <a href="#special">特別單位</a>
+      <button class="ghost" id="themeToggle">切換亮暗</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h2>我們的科技，保護每一個地面</h2>
+      <p class="muted">科技創新 × 元宇宙模擬 × 公民地震監測 — 元界創想</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="left">
+
+        <section class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center"><div>
+            <div class="title">一、董事會 / 高階管理層</div>
+            <div class="muted">核心決策與策略領導團隊</div>
+          </div>
+          <div style="text-align:right"><button class="btn" id="openContact">聯絡管理層</button></div></div>
+
+          <div style="margin-top:16px" class="leaders-grid">
+            <div class="leader" data-name="Young" data-role="CEO — 執行長" data-bio="願景主導、策略規劃、產業合作。">
+              <div class="avatar">YG</div>
+              <div style="font-weight:700">Young</div>
+              <div class="role">CEO</div>
+            </div>
+
+            <div class="leader" data-name="co2_tw" data-role="CTO — 技術長" data-bio="系統架構、監測平台、感測器研發。">
+              <div class="avatar">C2</div>
+              <div style="font-weight:700">co2_tw</div>
+              <div class="role">CTO</div>
+            </div>
+
+            <div class="leader" data-name="ck235" data-role="CPO — 企劃總監" data-bio="產品設計、品牌策略、內容規劃。">
+              <div class="avatar">CK</div>
+              <div style="font-weight:700">ck235</div>
+              <div class="role">CPO</div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="title">二、核心部門</div>
+          <div class="acc">
+            <details open>
+              <summary>技術研發部</summary>
+              <div class="content">
+                <strong>組別：</strong>AI / 資料分析、感測器與硬體、後端架構、前端 UI。
+              </div>
+            </details>
+
+            <details>
+              <summary>元宇宙系統部</summary>
+              <div class="content">3D 模擬（Unity/Unreal）、Sora 視覺生成、XR 虛實整合。</div>
+            </details>
+
+            <details>
+              <summary>創意設計部</summary>
+              <div class="content">品牌設計、多媒體、社群內容（YT/IG/TikTok）。</div>
+            </details>
+
+            <details>
+              <summary>企劃行銷部</summary>
+              <div class="content">行銷策略、專案企劃、合作／業務開發。</div>
+            </details>
+
+            <details>
+              <summary>營運管理部</summary>
+              <div class="content">行政／財務、法務、人力資源。</div>
+            </details>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="title">三、專案與即時展示（範例）</div>
+          <div class="muted">下面為範例區塊：你可以把這裡接上即時 API（地震儀資料、地圖圖層、事件告警）</div>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <div style="flex:1;min-width:220px" class="card small">
+              <strong>即時監測</strong>
+              <div class="muted" style="margin-top:8px">尚未接入 API — 範例顯示</div>
+            </div>
+            <div style="width:220px" class="card small">
+              <strong>模擬演示</strong>
+              <div class="muted">元宇宙場景／地震模擬</div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <aside class="right">
+        <div class="card small">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">快速資訊</div>
+              <div class="muted" style="font-size:13px">公司範本 • 可直接上線</div>
+            </div>
+            <div style="text-align:right"><div style="font-weight:700;color:var(--accent)">5 部門</div><div class="muted" style="font-size:12px">12 組（示意）</div></div>
+          </div>
+        </div>
+
+        <div class="card small contact">
+          <div style="font-weight:700">聯絡我們</div>
+          <input class="input" id="contactName" placeholder="姓名（範例：張博勛）" />
+          <input class="input" id="contactEmail" placeholder="Email（範例：team@example.com）" />
+          <textarea class="input" id="contactMsg" placeholder="訊息（範例：我想加入志工網）" rows="4"></textarea>
+          <button class="btn" id="sendContact">送出（示範）</button>
+        </div>
+
+        <div class="card small">
+          <div style="font-weight:700">下載</div>
+          <div class="muted" style="font-size:13px;margin-top:8px">將此頁匯出為 PDF 或列印作業報告</div>
+          <div style="margin-top:10px;display:flex;gap:8px"><button class="ghost" id="printBtn">列印 / 匯出 PDF</button><button class="ghost" id="downloadJSON">匯出 JSON</button></div>
+        </div>
+
+      </aside>
+    </section>
+
+    <section style="margin-top:18px" id="special">
+      <div class="card">
+        <div class="title">四、特別單位</div>
+        <div class="muted">地震公共服務中心、技術顧問團隊、志願者佈建網絡。</div>
+        <div style="margin-top:12px" class="acc">
+          <details>
+            <summary>地震公共服務中心（公民科學）</summary>
+            <div class="content">志工佈建地震儀、資料上傳、教育推廣。</div>
+          </details>
+          <details>
+            <summary>技術顧問團隊</summary>
+            <div class="content">地震學、工程、AI 與資安專家顧問。</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2025 元界創想 • Metaverse Innovations — 如需更深度整合（API、會員系統、即時地圖），我可以幫你接上。
+  </footer>
+
+  <!-- Leader modal -->
+  <div class="modal-backdrop" id="modal">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button style="float:right;background:transparent;border:none;color:var(--muted);font-size:16px;cursor:pointer" id="closeModal">✕</button>
+      <h3 id="modalName">Young</h3>
+      <div class="meta-row"><div class="avatar" style="width:56px;height:56px;border-radius:10px;font-size:14px">YG</div>
+      <div><div class="big" id="modalRole">CEO</div><div class="muted" id="modalBio">願景主導、策略規劃。</div></div></div>
+      <div style="margin-top:12px"><strong>社群 / 聯絡</strong><div class="muted">（範例）@young • young@example.com</div></div>
+    </div>
+  </div>
+
+  <button class="top-btn" id="toTop" title="回到頂部">↑</button>
+
+  <script>
+    // Smooth scroll for nav
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const t=document.querySelector(a.getAttribute('href'));
+        if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+      })
+    })
+
+    // Leader modal
+    const modal=document.getElementById('modal');
+    const closeModal=document.getElementById('closeModal');
+    document.querySelectorAll('.leader').forEach(el=>{
+      el.addEventListener('click',()=>{
+        modal.style.display='flex';
+        document.getElementById('modalName').textContent=el.dataset.name;
+        document.getElementById('modalRole').textContent=el.dataset.role;
+        document.getElementById('modalBio').textContent=el.dataset.bio;
+      })
+    })
+    closeModal.addEventListener('click',()=>modal.style.display='none');
+    modal.addEventListener('click',(e)=>{ if(e.target===modal) modal.style.display='none' })
+
+    // Contact demo
+    document.getElementById('sendContact').addEventListener('click',()=>{
+      const n=document.getElementById('contactName').value||'匿名';
+      alert(n+'，感謝你的訊息 — 這只是示範按鈕（未送出）。');
+    })
+
+    // Print
+    document.getElementById('printBtn').addEventListener('click',()=>window.print());
+
+    // Download JSON (example structure)
+    document.getElementById('downloadJSON').addEventListener('click',()=>{
+      const data={org:'元界創想',leaders:[{name:'Young',role:'CEO'},{name:'co2_tw',role:'CTO'},{name:'ck235',role:'CPO'}]};
+      const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+      const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='yuan_jie_org.json';a.click();URL.revokeObjectURL(url);
+    })
+
+    // Theme toggle (簡單亮暗切換)
+    const themeToggle=document.getElementById('themeToggle');
+    themeToggle.addEventListener('click',()=>{
+      if(document.documentElement.style.getPropertyValue('--bg')===''){
+        // switch to light
+        document.documentElement.style.setProperty('--bg','#f6f9ff');
+        document.documentElement.style.setProperty('--card','#ffffff');
+        document.documentElement.style.setProperty('--muted','#556677');
+        document.documentElement.style.setProperty('--accent','#0077cc');
+        document.documentElement.style.setProperty('color-scheme','light');
+        document.body.style.background='linear-gradient(180deg,#f6fbff,#eaf2ff)';
+      } else {
+        // revert dark
+        document.documentElement.style.removeProperty('--bg');
+        document.documentElement.style.removeProperty('--card');
+        document.documentElement.style.removeProperty('--muted');
+        document.documentElement.style.removeProperty('--accent');
+        document.documentElement.style.setProperty('color-scheme','dark');
+        document.body.style.background='linear-gradient(180deg,#041227 0%, #071022 100%)';
+      }
+    })
+
+    // Back to top
+    const toTop=document.getElementById('toTop');
+    toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+    // simple visibility for toTop
+    window.addEventListener('scroll',()=>{ toTop.style.display=(window.scrollY>200)?'block':'none' })
+    toTop.style.display='none';
+
+    // open contact modal
+    document.getElementById('openContact').addEventListener('click',()=>{
+      window.scrollTo({top:document.getElementById('special').offsetTop-80,behavior:'smooth'});
+      document.getElementById('contactName').focus();
+    })
+  </script>
 </body>
 </html>
