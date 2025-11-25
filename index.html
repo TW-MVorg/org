@@ -12,7 +12,6 @@ body {
     color: #fff;
     transition: background 0.3s, color 0.3s;
 }
-
 nav {
     position: fixed;
     top: 0;
@@ -24,141 +23,24 @@ nav {
     background: rgba(0,0,0,0.4);
     z-index: 1000;
 }
-
-nav a {
-    color: #fff;
-    margin-right: 20px;
-    text-decoration: none;
-    font-size: 1rem;
-}
-
-.toggle {
-    cursor: pointer;
-    padding: 8px 16px;
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 8px;
-}
-
-header {
-    text-align: center;
-    padding: 120px 20px 60px;
-}
-
-h1 {
-    font-size: 3rem;
-    letter-spacing: 2px;
-}
-
-.searchBox {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.searchBox input {
-    width: 300px;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    background: rgba(255,255,255,0.08);
-    color: #fff;
-    font-size: 1rem;
-}
-
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-}
-
-.section-title {
-    font-size: 1.8rem;
-    margin: 40px 0 20px;
-    text-align: center;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 25px;
-    margin-bottom: 60px;
-}
-
-.card {
-    padding: 20px;
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(18px);
-    border-radius: 16px;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.12);
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    background: rgba(255,255,255,0.2);
-}
-
-.modal-bg {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(8px);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.modal {
-    background: #111;
-    padding: 30px;
-    border-radius: 18px;
-    max-width: 420px;
-    width: 90%;
-    text-align: center;
-}
-
-.close {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: rgba(255,255,255,0.1);
-    border: none;
-    color: #fff;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.backTop {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: #fff;
-    color: #000;
-    padding: 12px 18px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: bold;
-    display: none;
-}
-
-.light-mode {
-    background: #f4f4f4;
-    color: #000;
-}
-
-.light-mode nav {
-    background: rgba(255,255,255,0.6);
-}
-
-.light-mode .card {
-    background: rgba(0,0,0,0.06);
-    border-color: rgba(0,0,0,0.2);
-}
+nav a { color: #fff; margin-right: 20px; text-decoration: none; font-size: 1rem; }
+.toggle { cursor: pointer; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; }
+header { text-align: center; padding: 120px 20px 60px; }
+h1 { font-size: 3rem; letter-spacing: 2px; }
+.searchBox { display: flex; justify-content: center; margin-top: 20px; }
+.searchBox input { width: 300px; padding: 12px; border-radius: 10px; border: none; background: rgba(255,255,255,0.08); color: #fff; font-size: 1rem; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.section-title { font-size: 1.8rem; margin: 40px 0 20px; text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 25px; margin-bottom: 60px; }
+.card { padding: 20px; background: rgba(255,255,255,0.06); backdrop-filter: blur(18px); border-radius: 16px; text-align: center; border: 1px solid rgba(255,255,255,0.12); cursor: pointer; transition: 0.3s; }
+.card:hover { transform: scale(1.05); background: rgba(255,255,255,0.2); }
+.modal-bg { position: fixed; left: 0; top: 0; height: 100%; width: 100%; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 9999; }
+.modal { background: #111; padding: 30px; border-radius: 18px; max-width: 420px; width: 90%; text-align: center; }
+.close { margin-top: 20px; padding: 10px 20px; background: rgba(255,255,255,0.1); border: none; color: #fff; border-radius: 10px; cursor: pointer; }
+.backTop { position: fixed; bottom: 25px; right: 25px; background: #fff; color: #000; padding: 12px 18px; border-radius: 50px; cursor: pointer; font-weight: bold; display: none; }
+.light-mode { background: #f4f4f4; color: #000; }
+.light-mode nav { background: rgba(255,255,255,0.6); }
+.light-mode .card { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.2); }
 </style>
 </head>
 <body>
@@ -183,19 +65,19 @@ h1 {
 
     <div class="section-title" id="leaders">高階成員</div>
     <div class="grid">
-        <div class="card" onclick="openModal('CEO - young')">CEO - young</div>
-        <div class="card" onclick="openModal('CTO - co2_tw')">CTO - co2_tw</div>
-        <div class="card" onclick="openModal('CPO - ck235')">CPO - ck235</div>
+        <div class="card" onclick="openModal('CEO - Young\n負責公司願景與整體策略。')">CEO - Young</div>
+        <div class="card" onclick="openModal('CTO - co2_tw\n負責技術架構、研發及平台建設。')">CTO - co2_tw</div>
+        <div class="card" onclick="openModal('CPO - ck235\n負責產品設計、品牌策略與內容規劃。')">CPO - ck235</div>
     </div>
 
     <div class="section-title" id="dept">部門</div>
     <div class="grid">
-        <div class="card">技術研發部</div>
-        <div class="card">產品創新部</div>
-        <div class="card">營運管理部</div>
-        <div class="card">地震監測計畫部</div>
-        <div class="card">資料科學中心</div>
-        <div class="card">行銷推廣部</div>
+        <div class="card" onclick="openModal('技術研發部\n負責AI、資料分析、感測器研發及前後端系統。\n成員：Alice、Bob、Charlie')">技術研發部</div>
+        <div class="card" onclick="openModal('產品創新部\n負責新產品設計、用戶研究與概念開發。\n成員：Diana、Ethan、Fiona')">產品創新部</div>
+        <div class="card" onclick="openModal('營運管理部\n負責行政、財務、法務、人力資源管理。\n成員：George、Hannah、Ian')">營運管理部</div>
+        <div class="card" onclick="openModal('地震監測計畫部\n負責地震監測、資料收集與分析。\n成員：Jack、Karen、Leo')">地震監測計畫部</div>
+        <div class="card" onclick="openModal('資料科學中心\n負責資料分析、模型建構及AI預測。\n成員：Mona、Nate、Olivia')">資料科學中心</div>
+        <div class="card" onclick="openModal('行銷推廣部\n負責品牌推廣、社群經營及活動策劃。\n成員：Paul、Queenie、Ray')">行銷推廣部</div>
     </div>
 </div>
 
@@ -207,34 +89,14 @@ h1 {
 
 <script>
 let dark = true;
-function toggleTheme() {
-    dark = !dark;
-    document.body.classList.toggle('light-mode');
-}
-
-function openModal(text) {
-    document.getElementById('modalBg').style.display = 'flex';
-    document.getElementById('modalBox').innerHTML = `<h2>${text}</h2><button class='close' onclick='closeModal()'>關閉</button>`;
-}
-
-function closeModal() {
-    document.getElementById('modalBg').style.display = 'none';
-}
-
-window.onscroll = function() {
-    if (window.scrollY > 300) document.getElementById('backTop').style.display = 'block';
-    else document.getElementById('backTop').style.display = 'none';
-};
-
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
+function toggleTheme() { dark = !dark; document.body.classList.toggle('light-mode'); }
+function openModal(text) { document.getElementById('modalBg').style.display = 'flex'; document.getElementById('modalBox').innerHTML = `<pre style='white-space: pre-wrap;'>${text}</pre><button class='close' onclick='closeModal()'>關閉</button>`; }
+function closeModal() { document.getElementById('modalBg').style.display = 'none'; }
+window.onscroll = function() { if(window.scrollY > 300) document.getElementById('backTop').style.display='block'; else document.getElementById('backTop').style.display='none'; };
+function scrollToTop() { window.scrollTo({ top:0, behavior:'smooth' }); }
 function filterCards() {
     const q = document.getElementById('search').value.toLowerCase();
-    document.querySelectorAll('.card').forEach(c => {
-        c.style.display = c.textContent.toLowerCase().includes(q) ? 'block' : 'none';
-    });
+    document.querySelectorAll('.card').forEach(c=>{ c.style.display = c.textContent.toLowerCase().includes(q) ? 'block' : 'none'; });
 }
 </script>
 
