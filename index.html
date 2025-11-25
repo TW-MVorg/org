@@ -1,107 +1,242 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>元界創想組織架構</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: "Inter", sans-serif;
-            background: #0d0d0d;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>元界創想組織架構</title>
+<style>
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background: #0d0d0d;
+    color: #fff;
+    transition: background 0.3s, color 0.3s;
+}
 
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
-        }
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    backdrop-filter: blur(12px);
+    background: rgba(0,0,0,0.4);
+    z-index: 1000;
+}
 
-        h1 {
-            font-size: 3rem;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
+nav a {
+    color: #fff;
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 1rem;
+}
 
-        .org-container {
-            display: flex;
-            justify-content: center;
-            padding: 40px 20px;
-        }
+.toggle {
+    cursor: pointer;
+    padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+}
 
-        .org-chart {
-            width: 100%;
-            max-width: 900px;
-            position: relative;
-        }
+header {
+    text-align: center;
+    padding: 120px 20px 60px;
+}
 
-        .node {
-            padding: 18px 25px;
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(12px);
-            border-radius: 14px;
-            text-align: center;
-            font-size: 1.2rem;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            transition: transform 0.3s ease, background 0.3s ease;
-            cursor: pointer;
-        }
+h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
 
-        .node:hover {
-            transform: scale(1.05);
-            background: rgba(255, 255, 255, 0.2);
-        }
+.searchBox {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
 
-        .level {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 50px 0;
-        }
+.searchBox input {
+    width: 300px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 1rem;
+}
 
-        .line {
-            width: 2px;
-            background: rgba(255, 255, 255, 0.3);
-            height: 40px;
-            margin: 0 auto;
-        }
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.section-title {
+    font-size: 1.8rem;
+    margin: 40px 0 20px;
+    text-align: center;
+}
 
-        .animated {
-            animation: fadeInUp 0.8s ease;
-        }
-    </style>
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.card {
+    padding: 20px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(18px);
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.12);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.2);
+}
+
+.modal-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(8px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal {
+    background: #111;
+    padding: 30px;
+    border-radius: 18px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+}
+
+.close {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.backTop {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #fff;
+    color: #000;
+    padding: 12px 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    display: none;
+}
+
+.light-mode {
+    background: #f4f4f4;
+    color: #000;
+}
+
+.light-mode nav {
+    background: rgba(255,255,255,0.6);
+}
+
+.light-mode .card {
+    background: rgba(0,0,0,0.06);
+    border-color: rgba(0,0,0,0.2);
+}
+</style>
 </head>
 <body>
-    <header>
-        <h1>元界創想組織架構</h1>
-    </header>
 
-    <div class="org-container">
-        <div class="org-chart">
-            <div class="level animated">
-                <div class="node">CEO - young</div>
-            </div>
-
-            <div class="line"></div>
-
-            <div class="level animated">
-                <div class="node">CTO - co2_tw</div>
-                <div class="node">CPO - ck235</div>
-            </div>
-        </div>
+<nav>
+    <div>
+        <a href="#top">首頁</a>
+        <a href="#leaders">高階成員</a>
+        <a href="#dept">部門</a>
     </div>
+    <div class="toggle" onclick="toggleTheme()">模式</div>
+</nav>
+
+<header id="top">
+    <h1>元界創想 組織架構</h1>
+    <div class="searchBox">
+        <input type="text" id="search" placeholder="搜尋成員或部門" oninput="filterCards()">
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="section-title" id="leaders">高階成員</div>
+    <div class="grid">
+        <div class="card" onclick="openModal('CEO - young')">CEO - young</div>
+        <div class="card" onclick="openModal('CTO - co2_tw')">CTO - co2_tw</div>
+        <div class="card" onclick="openModal('CPO - ck235')">CPO - ck235</div>
+    </div>
+
+    <div class="section-title" id="dept">部門</div>
+    <div class="grid">
+        <div class="card">技術研發部</div>
+        <div class="card">產品創新部</div>
+        <div class="card">營運管理部</div>
+        <div class="card">地震監測計畫部</div>
+        <div class="card">資料科學中心</div>
+        <div class="card">行銷推廣部</div>
+    </div>
+</div>
+
+<div class="modal-bg" id="modalBg">
+    <div class="modal" id="modalBox"></div>
+</div>
+
+<div class="backTop" id="backTop" onclick="scrollToTop()">↑</div>
+
+<script>
+let dark = true;
+function toggleTheme() {
+    dark = !dark;
+    document.body.classList.toggle('light-mode');
+}
+
+function openModal(text) {
+    document.getElementById('modalBg').style.display = 'flex';
+    document.getElementById('modalBox').innerHTML = `<h2>${text}</h2><button class='close' onclick='closeModal()'>關閉</button>`;
+}
+
+function closeModal() {
+    document.getElementById('modalBg').style.display = 'none';
+}
+
+window.onscroll = function() {
+    if (window.scrollY > 300) document.getElementById('backTop').style.display = 'block';
+    else document.getElementById('backTop').style.display = 'none';
+};
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function filterCards() {
+    const q = document.getElementById('search').value.toLowerCase();
+    document.querySelectorAll('.card').forEach(c => {
+        c.style.display = c.textContent.toLowerCase().includes(q) ? 'block' : 'none';
+    });
+}
+</script>
+
 </body>
 </html>
